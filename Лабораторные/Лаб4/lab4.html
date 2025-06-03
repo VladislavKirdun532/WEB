@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ пиццы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .pizza-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Заказ пиццы</h1>
+    
+    <form id="orderForm">
+        <div class="pizza-item">
+            <label>
+                <input type="checkbox" checked> Маргарита:
+            </label>
+            <select data-price="10">
+                <option value="small">Маленькая (10$)</option>
+                <option value="medium">Средняя (15$)</option>
+                <option value="large">Большая (20$)</option>
+            </select>
+        </div>
+        
+        <div class="pizza-item">
+            <label>
+                <input type="checkbox" checked> Пепперони:
+            </label>
+            <select data-price="12">
+                <option value="small">Маленькая (12$)</option>
+                <option value="medium">Средняя (17$)</option>
+                <option value="large">Большая (22$)</option>
+            </select>
+        </div>
+        
+        <div class="pizza-item">
+            <label>
+                <input type="checkbox" checked> Гавайская:
+            </label>
+            <select data-price="11">
+                <option value="small">Маленькая (11$)</option>
+                <option value="medium">Средняя (16$)</option>
+                <option value="large">Большая (21$)</option>
+            </select>
+        </div>
+        
+        <div class="pizza-item">
+            <label>
+                <input type="checkbox" checked> Четыре сыра:
+            </label>
+            <select data-price="13">
+                <option value="small">Маленькая (13$)</option>
+                <option value="medium">Средняя (18$)</option>
+                <option value="large">Большая (23$)</option>
+            </select>
+        </div>
+        
+        <div class="pizza-item">
+            <label>
+                <input type="checkbox" checked> Вегетарианская:
+            </label>
+            <select data-price="9">
+                <option value="small">Маленькая (9$)</option>
+                <option value="medium">Средняя (14$)</option>
+                <option value="large">Большая (19$)</option>
+            </select>
+        </div>
+        
+        <p>
+            <input type="checkbox" id="delivery"> Доставка (+5%)
+        </p>
+        
+        <button type="button" onclick="calculate()">Рассчитать</button>
+    </form>
+    
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            let total = 0;
+            let largeCount = 0;
+            let pizzaCount = 0;
+            
+            document.querySelectorAll('.pizza-item').forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                const select = item.querySelector('select');
+                
+                if (checkbox.checked) {
+                    const price = parseInt(select.dataset.price);
+                    const size = select.value;
+                    
+                    if (size === 'medium') {
+                        total += price + 5;
+                    } 
+                    else if (size === 'large') {
+                        total += price + 10;
+                        largeCount++;
+                    } 
+                    else {
+                        total += price;
+                    }
+                    
+                    pizzaCount++;
+                }
+            });
+            
+            let delivery = 0;
+            if (document.getElementById('delivery').checked) {
+                delivery = (largeCount >= 3) ? 0 : total * 0.05;
+            }
+            
+            const drink = (largeCount >= 2) ? " + напиток бесплатно" : "";
+            
+            document.getElementById('result').innerHTML = `
+                <p>Пицц в заказе: ${pizzaCount}</p>
+                <p>Сумма: ${total}$</p>
+                <p>Доставка: ${delivery}$</p>
+                <p><b>Итого: ${total + delivery}$ ${drink}</b></p>
+            `;
+        }
+    </script>
+</body>
+</html>

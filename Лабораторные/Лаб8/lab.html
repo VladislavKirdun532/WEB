@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №8 (Вариант 2)</title>
+    <!-- Подключаем библиотеку jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h2 {
+            color: darkcyan;
+        }
+        ul, table {
+            margin: 15px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        img {
+            border: 2px solid #ccc;
+            margin: 5px;
+        }
+        td {
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Лабораторная работа №8 (Вариант 2)</h1>
+
+    <!-- Блок для первого задания -->
+    <div class="container">
+        <h2>1. Элементы li с текстом "мотоцикл" в блоке #moto_models</h2>
+        <ul id="moto_models">
+            <li>Автомобиль BMW</li>
+            <li>Мотоцикл Yamaha</li>
+            <li>Мотоцикл Honda</li>
+            <li>Велосипед Trek</li>
+            <li>Мотоцикл Kawasaki</li>
+        </ul>
+        <button id="task1">Выполнить задание 1</button>
+        <div id="result1"></div>
+    </div>
+
+    <!-- Блок для второго задания -->
+    <div class="container">
+        <h2>2. Картинки в блоке #forfooter с title="Производители"</h2>
+        <div id="forfooter">
+            <img src="Yamaha.jpg" title="Производители" alt="Yamaha">
+            <img src="Honda.jpg" title="Мотоциклы" alt="Honda">
+            <img src="Kawasaki.png" title="Производители" alt="Kawasaki">
+            <img src="Suzuki.jpg" title="Мотоциклы" alt="Suzuki">
+        </div>
+        <button id="task2">Выполнить задание 2</button>
+        <div id="result2"></div>
+    </div>
+
+    <!-- Блок для третьего задания -->
+    <div class="container">
+        <h2>3. Последние ячейки в четных строках таблицы #moto_table</h2>
+        <table id="moto_table" border="1">
+            <tr>
+                <td>Модель</td>
+                <td>Производитель</td>
+                <td>Год</td>
+            </tr>
+            <tr>
+                <td>YZF-R1</td>
+                <td>Yamaha</td>
+                <td>2022</td>
+            </tr>
+            <tr>
+                <td>CBR1000RR</td>
+                <td>Honda</td>
+                <td>2021</td>
+            </tr>
+            <tr>
+                <td>Ninja ZX-10R</td>
+                <td>Kawasaki</td>
+                <td>2023</td>
+            </tr>
+            <tr>
+                <td>GSX-R1000</td>
+                <td>Suzuki</td>
+                <td>2020</td>
+            </tr>
+        </table>
+        <button id="task3">Выполнить задание 3</button>
+        <div id="result3"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Задание 1: Элементы li с текстом "мотоцикл" в блоке #moto_models
+            $("#task1").click(function() {
+                // Выбираем элементы li внутри #moto_models, содержащие текст "мотоцикл"
+                var selectedItems = $("#moto_models li:contains('мотоцикл')");
+                
+                // Подсвечиваем найденные элементы
+                selectedItems.addClass("highlight");
+                
+                // Выводим результат
+                $("#result1").html(
+                    "<p>Найдено элементов: " + selectedItems.length + "</p>" +
+                    "<p>Список элементов:</p><ul>" + 
+                    selectedItems.map(function() { 
+                        return "<li>" + $(this).text() + "</li>"; 
+                    }).get().join("") + "</ul>"
+                );
+            });
+
+            // Задание 2: Картинки в блоке #forfooter с title="Производители"
+            $("#task2").click(function() {
+                // Выбираем изображения внутри #forfooter с атрибутом title="Производители"
+                var selectedImages = $("#forfooter img[title='Производители']");
+                
+                // Добавляем рамку к найденным изображениям
+                selectedImages.css("border", "2px solid red");
+                
+                // Выводим результат
+                $("#result2").html(
+                    "<p>Найдено изображений: " + selectedImages.length + "</p>" +
+                    "<p>Атрибуты src найденных изображений:</p><ul>" + 
+                    selectedImages.map(function() { 
+                        return "<li>" + $(this).attr("src") + "</li>"; 
+                    }).get().join("") + "</ul>"
+                );
+            });
+
+            // Задание 3: Последние ячейки в четных строках таблицы #moto_table
+            $("#task3").click(function() {
+                // Выбираем последние ячейки (td:last-child) в четных строках (tr:nth-child(even))
+                var selectedCells = $("#moto_table tr:nth-child(even) td:last-child");
+                
+                // Подсвечиваем найденные ячейки
+                selectedCells.addClass("highlight");
+                
+                // Выводим результат
+                $("#result3").html(
+                    "<p>Найдено ячеек: " + selectedCells.length + "</p>" +
+                    "<p>Содержимое ячеек:</p><ul>" + 
+                    selectedCells.map(function() { 
+                        return "<li>" + $(this).text() + "</li>"; 
+                    }).get().join("") + "</ul>"
+                );
+            });
+        });
+    </script>
+</body>
+</html>

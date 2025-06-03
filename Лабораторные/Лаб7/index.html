@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №7, Вариант 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторная работа №7, Вариант 1</h1>
+        
+        <div class="section">
+            <h2>Часть 1: Расчет минут с начала занятия</h2>
+            <div class="form-group">
+                <label for="startTime">Время начала занятия (ЧЧ:ММ):</label>
+                <input type="text" id="startTime" placeholder="09:00">
+            </div>
+            <div class="form-group">
+                <label for="currentTime">Текущее время:</label>
+                <input type="text" id="currentTime" readonly>
+                <button onclick="updateCurrentTime()">Обновить время</button>
+            </div>
+            <button onclick="calculateMinutes()">Рассчитать минуты</button>
+            <div class="result" id="minutesResult"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Часть 2: Учет сотрудников</h2>
+            <div class="form-group">
+                <label for="employeeName">Фамилия:</label>
+                <input type="text" id="employeeName">
+            </div>
+            <div class="form-group">
+                <label for="hourlyRate">Оплата за час (руб):</label>
+                <input type="number" id="hourlyRate" min="0">
+            </div>
+            <div class="form-group">
+                <label for="startDate">Дата начала работы:</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate">Дата окончания работы:</label>
+                <input type="date" id="endDate">
+            </div>
+            <button onclick="addEmployee()">Добавить сотрудника</button>
+            <button onclick="calculateAll()">Рассчитать для всех</button>
+            <div class="result" id="employeesResult"></div>
+            <div id="employeesList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
