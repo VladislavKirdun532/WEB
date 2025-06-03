@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Grid - Вариант 12</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .row {
+            margin-bottom: 20px;
+        }
+        .block {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            min-height: 50px;
+        }
+        .nested {
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Первый ряд: 2 блока -->
+        <div class="row">
+            <div class="col-md-6 col-lg-6 block">Блок 1</div>
+            <div class="col-md-6 col-lg-6 block">Блок 2</div>
+        </div>
+        
+        <!-- Второй ряд: 1 блок с вложенными -->
+        <div class="row">
+            <div class="col-xs-12 block">
+                Основной блок
+                <div class="row">
+                    <div class="col-md-5 col-sm-5 nested">Вложенный блок 1</div>
+                    <div class="col-md-5 col-sm-5 col-md-offset-2 col-sm-offset-2 nested">Вложенный блок 2</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Третий ряд: 1 блок на 7 колонок и 2 по 2 колонки -->
+        <div class="row">
+            <div class="col-md-7 block">Блок на 7 колонок</div>
+            <div class="col-md-2 block">Блок 1 (2 колонки)</div>
+            <div class="col-md-2 col-md-offset-1 block hidden-xs">Блок 2 (2 колонки)</div>
+            <div class="col-xs-12 visible-xs-block" style="height: 20px;"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

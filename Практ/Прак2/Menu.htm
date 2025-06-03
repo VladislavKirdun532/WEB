@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <Title>Меню</Title>
+        <style>
+            .top-menu li{
+    list-style:none;
+    display:inline-block;
+    background:#ccc;
+    position:relative;
+}
+.top-menu li:hover{
+    background:#eee;
+}
+.top-menu li a{
+    color:#222;
+    padding:5px 7px;
+    text-decoration:none; 
+    display:block;
+}
+.top-menu li ul{
+    display:none;
+    position:absolute;
+    padding-left:0;
+    width:120px;
+    padding-top:3px;
+}
+.top-menu li:hover ul{
+    display:block;
+    left:0px;
+}
+        </style>
+    </head>
+    <body>
+        <div class="top-menu">
+            <ul>
+                <li><a href="index.htm">Страница 2</a></li>
+                <li><a href="page3.htm">Страница 3</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

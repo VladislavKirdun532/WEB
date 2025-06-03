@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid - Вариант 12 (Улучшенный)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .row-custom {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .block {
+            padding: 20px;
+            margin-bottom: 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #0d6efd;
+            border-radius: 4px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .block-1 { border-left-color: #0dcaf0; }
+        .block-2 { border-left-color: #6f42c1; }
+        .block-3 { border-left-color: #fd7e14; }
+        .block-4 { border-left-color: #dc3545; }
+        
+        .nested {
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        
+        h3 {
+            margin-top: 0;
+            color: #343a40;
+        }
+        
+        /* Стили для карточек персонала */
+        .card-person {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-person:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .person-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .person-position {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .person-bio {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .team-section {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">Компания "ТехноЛаб"</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О компании</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Команда</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="mb-4 text-center">Демонстрация сетки Bootstrap</h2>
+        
+        <!-- Первый ряд: 2 блока -->
+        <div class="row row-custom">
+            <div class="col-md-6 col-lg-6">
+                <div class="block block-1">
+                    <h3>Блок 1</h3>
+                    <p>Занимает 6 колонок на средних и больших экранах</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="block block-2">
+                    <h3>Блок 2</h3>
+                    <p>Также занимает 6 колонок, выравниваясь в ряд с первым блоком</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Секция с персоналом -->
+        <div class="team-section">
+            <div class="container">
+                <h2 class="text-center mb-5">Наша команда</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-person">
+                            <img src="https://via.placeholder.com/300x220?text=Директор" class="card-img-top" alt="Директор">
+                            <div class="card-body">
+                                <h5 class="person-name">Александр Петров</h5>
+                                <p class="person-position">Генеральный директор</p>
+                                <p class="person-bio">Опыт работы в управлении более 10 лет. Специалист в области стратегического планирования.</p>
+                                <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-person">
+                            <img src="https://via.placeholder.com/300x220?text=Разработчик" class="card-img-top" alt="Разработчик">
+                            <div class="card-body">
+                                <h5 class="person-name">Ирина Смирнова</h5>
+                                <p class="person-position">Ведущий разработчик</p>
+                                <p class="person-bio">Full-stack разработчик с экспертизой в JavaScript, Python и облачных технологиях.</p>
+                                <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-person">
+                            <img src="https://via.placeholder.com/300x220?text=Дизайнер" class="card-img-top" alt="Дизайнер">
+                            <div class="card-body">
+                                <h5 class="person-name">Михаил Козлов</h5>
+                                <p class="person-position">UX/UI дизайнер</p>
+                                <p class="person-bio">Создаёт интуитивно понятные интерфейсы с акцентом на пользовательский опыт.</p>
+                                <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Второй ряд: 1 блок с вложенными -->
+        <div class="row row-custom">
+            <div class="col-12">
+                <div class="block block-3">
+                    <h3>Основной блок</h3>
+                    <p>Содержит два вложенных блока с отступами</p>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-5 col-sm-5">
+                            <div class="nested">
+                                <h4>Вложенный блок 1</h4>
+                                <p>Занимает 5 колонок</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 offset-md-2 offset-sm-2">
+                            <div class="nested">
+                                <h4>Вложенный блок 2</h4>
+                                <p>Также занимает 5 колонок с отступом</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Третий ряд: 1 блок на 7 колонок и 2 по 2 колонки -->
+        <div class="row row-custom">
+            <div class="col-md-7">
+                <div class="block block-1">
+                    <h3>Блок на 7 колонок</h3>
+                    <p>Занимает большую часть ряда на больших экранах</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="block block-4">
+                    <h3>Блок 1</h3>
+                    <p>2 колонки</p>
+                </div>
+            </div>
+            <div class="col-md-2 offset-md-1 d-none d-md-block">
+                <div class="block block-2">
+                    <h3>Блок 2</h3>
+                    <p>Еще 2 колонки с отступом</p>
+                </div>
+            </div>
+            <div class="col-12 d-md-none mt-2">
+                <div class="alert alert-info">
+                    На маленьких экранах третий блок скрыт (как в оригинале)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Компания "ТехноЛаб"</h5>
+                    <p>Инновационные решения для вашего бизнеса</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>© 2023 Все права защищены</p>
+                    <p>Email: info@technolab.example</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

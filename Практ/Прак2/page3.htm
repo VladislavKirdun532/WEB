@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница 3 - Таблицы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="advertisement">
+        <h3>Специальное предложение!</h3>
+        <p>Курс по HTML/CSS со скидкой 50%</p>
+        <button>Узнать больше</button>
+    </div>
+
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.htm">Страница 2</a></li>
+            <li><a href="page3.htm">Страница 3</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <h1>Таблицы</h1>
+        
+
+        <div class="content-with-image">
+            <p>Исторически первым и единственным способом раскладки страницы были таблицы. Описанию поведения таблиц посвящена целая глава в спецификации CSS 2.1. Несмотря на такой объем, некоторые моменты описаны скудно или вообще не определены и отданы на усмотрение браузеров.</p>
+        </div>
+
+
+        <div class="three-columns">
+            <div class="column">
+                <h2>Достоинства</h2>
+                <ul>
+                    <li>Ячейки таблиц выравниваются по сетке</li>
+                    <li>Позволяет простым способом создать модульную сетку</li>
+                    <li>Поддерживает "резиновые" сайты</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Недостатки</h2>
+                <ul>
+                    <li>Структура таблицы не адаптируется под размер окна</li>
+                    <li>Не может гибко подстраиваться под доступное пространство</li>
+                    <li>Ограниченные возможности для сложных макетов</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Раскладка</h2>
+                <ul>
+                    <li>Жёсткая (table-layout: fixed)</li>
+                    <li>Автоматическая (table-layout: auto)</li>
+                    <li>Переполнение обрабатывается через overflow</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="additional-content">
+            <h2>Z-index</h2>
+            <p>Z-индекс предназначен для работы с элементами страницы в трехмерном пространстве. Для этого вводится третья ось – ось Z. Так как страницу мы видим как двухмерную, элементы накладываются слой за слоем друг на друга. Управлять подобным наложением можно с помощью свойства z-index.</p>
+            
+            <div class="z-index-example">
+                <div class="layer1">Слой 1 (z-index: 1)</div>
+                <div class="layer2">Слой 2 (z-index: 2)</div>
+                <div class="layer3">Слой 3 (z-index: 3)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

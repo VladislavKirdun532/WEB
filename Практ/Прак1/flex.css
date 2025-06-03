@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    border: 1px solid rgb(255, 119, 198);
+    width: 1650px;
+    height: 1100px;
+    color: white;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: stretch;
+    gap: 5px;
+    padding: 5px;
+}
+.elem {
+background-color: rgb(255, 119, 198);
+width: 70px;
+justify-content: center;
+align-items: center;
+display: flex;
+}
+
+.elemlit {
+    background-color: rgb(255, 119, 198);
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-self: center;
+    }
